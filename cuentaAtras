@@ -1,0 +1,468 @@
+#!/bin/bash
+
+# Copyright 2026 Tu Nombre y colaboradores
+# SPDX-License-Identifier: GPL-2.0-only
+# Este programa es software libre: puedes redistribuirlo y/o modificarlo bajo los términos
+# de la Licencia Pública General GNU como publicada por la Free Software Foundation,
+# ya sea la versión 2 de la Licencia, o (a tu elección) cualquier versión posterior.
+
+################################
+ ### C U E N T A  A T R Á S ###
+################################ 05.04.23
+
+
+#funciones:
+mostrarTiempo()
+{
+##  https://textart.sh/topic/number
+##  ▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+##  ▓▓  ▓▓▓▓▓▓▓▓  ▓▓▓▓      ▓▓      ▓▓  ▓▓  ▓▓      ██      ▓▓      ▓▓      ▓▓      ▓▓
+##  ▓▓    ░░▓▓▓▓  ██▓▓▓▓▓▓  ▓▓▓▓▓▓  ▓▓  ▓▓  ▓▓  ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓  ▓▓  ▓▓  ▓▓  ▓▓  ▓▓
+##  ▓▓    ░░  ▓▓  ▓▓▓▓▓▓  ▓▓▓▓██  ▒▒▓▓      ▓▓      ██      ▓▓▓▓▓▓  ▓▓      ▓▓      ▓▓
+##  ▓▓    ░░▓▓▓▓  ▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓  ▓▓▓▓▓▓  ▓▓  ▓▓  ▓▓▓▓▓▓  ▓▓  ▓▓  ▓▓▓▓▓▓  ▓▓
+##  ▓▓  ▓▓▓▓▓▓▓▓  ▓▓▓▓      ▓▓      ▓▓▓▓▓▓  ▓▓      ▓▓      ▓▓▓▓▓▓  ▓▓      ▓▓      ▓▓
+##  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+##
+
+    #if (($(echo "$horas" | cut -c1) equal ""))
+    #then
+    #    mostrarHoras1=$(echo "$horas" | cut -c1)
+    #    echo "hola 1"
+    #else
+    #    $mostrarHoras1=$(echo "0")
+    #    echo "hola 2"
+    #fi
+    #mostrarHoras2=$(echo "$horas" | cut -c2)
+    #if (($minutos >= "10"))
+    #then
+    #    mostrarMinutos1=$(echo "$minutos" | cut -c1)
+    #else
+    #    mostrarMinutos1="0"
+    #fi
+    #mostrarMinutos2=$(echo "$minutos" | cut -c2)
+    #if (($segundos >= "10"))
+    #then
+    #    mostrarSegundos1=$(echo "$segundos" | cut -c1)
+    #else
+    #    mostrarSegundos1="0"
+    #fi
+    #mostrarSegundos2=$(echo "$segundos" | cut -c2)
+
+    #digito=($(echo "$mostrarHoras1$mostrarHoras2")
+    #                $(echo ":")
+    #                $(echo "$mostrarMinutos1$mostrarMinutos2")
+    #                $(echo ":")
+    #                $(echo "$mostrarSegundos1$mostrarSegundos2"))
+
+    digito=($(echo "$horas" | cut -c1) $(echo "$horas" | cut -c2)
+                    $(echo ":")
+                    $(echo "$minutos" | cut -c1) $(echo "$minutos" | cut -c2)
+                    $(echo ":")
+                    $(echo "$segundos" | cut -c1) $(echo "$segundos" | cut -c2))
+
+
+    i=0;
+    digit=0;
+    #Todo se repite para cada línea
+    while [ $i != 5 ]
+    do
+        while [ $digit != 8 ]    #Se repite una vez por dígito
+        do
+            #echo "${digito[$digit]} y $i"
+            case ${digito[$digit]} in
+                ":")
+                    case ${i} in
+                        "0")
+                            echo -n "▓▓▓▓"
+                            ;;
+                        "1")
+                            echo -n "▓▓▓▓"
+                            ;;
+                        "2")
+                            echo -n "▓  ▓"
+                            ;;
+                        "3")
+                            echo -n "▓▓▓▓"
+                            ;;
+                        "4")
+                            echo -n "▓  ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                    esac
+                    ;;
+                "1")
+                    case $i in
+                        "0")
+                            echo -n "▓▓▓  ▓▓▓"
+                            ;;
+                        "1")
+                            echo -n "▓▓▓  ▓▓▓"
+                            ;;
+                        "2")
+                            echo -n "▓▓▓  ▓▓▓"
+                            ;;
+                        "3")
+                            echo -n "▓▓▓  ▓▓▓"
+                            ;;
+                        "4")
+                            echo -n "▓▓▓  ▓▓▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "2")
+                    case $i in
+                        "0")
+                            echo -n "▓      ▓"
+                            ;;
+                        "1")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "2")
+                            echo -n "▓▓▓  ▓▓▓"
+                            ;;
+                        "3")
+                            echo -n "▓  ▓▓▓▓▓"
+                            ;;
+                        "4")
+                            echo -n "▓      ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "3")
+                    case $i in
+                        "0")
+                            echo -n "▓      ▓"
+                            ;;
+                        "1")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "2")
+                            echo -n "▓██  ▒▒▓"
+                            ;;
+                        "3")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "4")
+                            echo -n "▓      ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "4")
+                    case $i in
+                        "0")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "1")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "2")
+                            echo -n "▓      ▓"
+                            ;;
+                        "3")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "4")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "5")
+                    case $i in
+                        "0")
+                            echo -n "▓      █"
+                            ;;
+                        "1")
+                            echo -n "▓  ▓▓▓▓▓"
+                            ;;
+                        "2")
+                            echo -n "▓      █"
+                            ;;
+                        "3")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "4")
+                            echo -n "▓      ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "6")
+                    case $i in
+                        "0")
+                            echo -n "█      ▓"
+                            ;;
+                        "1")
+                            echo -n "▓  ▓▓▓▓▓"
+                            ;;
+                        "2")
+                            echo -n "█      ▓"
+                            ;;
+                        "3")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "4")
+                            echo -n "▓      ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "7")
+                    case $i in
+                        "0")
+                            echo -n "▓      ▓"
+                            ;;
+                        "1")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "2")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "3")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "4")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "8")
+                    case $i in
+                        "0")
+                            echo -n "▓      ▓"
+                            ;;
+                        "1")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "2")
+                            echo -n "▓      ▓"
+                            ;;
+                        "3")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "4")
+                            echo -n "▓      ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "9")
+                    case $i in
+                        "0")
+                            echo -n "▓      ▓"
+                            ;;
+                        "1")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "2")
+                            echo -n "▓      ▓"
+                            ;;
+                        "3")
+                            echo -n "▓▓▓▓▓  ▓"
+                            ;;
+                        "4")
+                            echo -n "▓      ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+                "0")
+                    case $i in
+                        "0")
+                            echo -n "▓      ▓"
+                            ;;
+                        "1")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "2")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "3")
+                            echo -n "▓  ▓▓  ▓"
+                            ;;
+                        "4")
+                            echo -n "▓      ▓"
+                            ;;
+                        *)
+                            echo -n "Vaya error"
+                            ;;
+                        esac
+                    ;;
+            esac
+            let "digit++"
+        done
+        echo ""
+        let "digit=0"
+        let "i++"
+    done
+}
+
+restar1Segundo()
+{
+    if (($segundos == 0));
+    then
+        if (($minutos == 0));
+        then
+            if (($horas == 0));
+            then
+                let "horas = 0"
+                let "minutos = 0"
+                let "segundos = 0"
+            else
+                let "horas--"
+                let "minutos = 59"
+                let "segundos = 59"
+            fi
+        else
+            let "minutos--"
+            let "segundos = 59"
+        fi
+    else
+        let "segundos--"
+    fi
+
+
+}
+sumar1Segundo()
+{
+    if (($segundos == 59));
+    then
+        if (($minutos == 59));
+        then
+            if (($horas == 99));
+            then
+                #Caso que no se usa
+                let "horas = 0"
+                let "minutos = 0"
+                let "segundos = 0"
+            else
+                let "horas++"
+                let "minutos = 00"
+                let "segundos = 00"
+            fi
+        else
+            let "minutos++"
+            let "segundos = 00"
+        fi
+    else
+        let "segundos++"
+    fi
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Redimensionar
+# https://duckduckgo.com/?q=redimensionar+terminal+bash&t=ftsa&atb=v362-1&ia=web
+echo -ne '\e[8;20;80t'
+
+if (( $# != 3 ));
+then
+    echo -e "\n\tBenvingut al conter enrere:\n"
+    echo -e "\t\tExecuta amb: cuentaAtras hh mm ss\n"
+    exit
+fi
+
+finalizado=1
+#procesar tiempo (obtengo tiempo)
+horas=$1
+minutos=$2
+segundos=$3
+
+#guardo fecha(hora) inicio
+fechaInicio=date
+
+#Muestro tiempo total
+mostrarTiempo
+
+#Bucle cuenta atrás
+while [ $finalizado != 0 ]
+do
+    #Muestro tiempo
+    clear
+    mostrarTiempo
+
+    #Esperar un segundo
+    sleep 1;
+
+    #actualizao tiempo
+    restar1Segundo
+
+    if (($horas == 0)) && (($minutos==0)) && (($segundos==0));
+    then
+        finalizado=0
+    fi
+done
+
+#Bucle cuenta atrás terminada
+while [ true ]
+do
+#Mostrar testo con
+    #Cuenta atrás terminada
+    #Cuenta de: tiemop pasado
+    #Iniciada en x terminada en x
+    #Lleva acabada desde:
+    clear
+    mostrarTiempo
+    sumar1Segundo
+    sleep 1
+done
+
+# si es mas de un día, poner eso y salir
+
+
+
+
+##
+#05.05.2023 - Ahora funciona la cuenta atrás, se muestran bien los números
+#               Falta:  sonido final
+#                       que sume cuando se acaba el tiempo
+#                       Que tenga en cuenta los 60 min y seg maximos
+#                       Falta que cuando resto un número lo ignore y no de error al intentar mostrar mas numeros de los que hay
+#                       ej:  00:00:10 -> 00:00:9 , al mostrar un numero menos se lia
+#25.07.2026 - Ajustes tontos, ya va. Hecha la cuenta adelante.
