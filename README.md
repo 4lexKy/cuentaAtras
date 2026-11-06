@@ -1,5 +1,5 @@
 [Versión 0.6.2]: #
-# cuentaAtras - Cuentra atrás diginal por CLI
+# cuentaAtras - Cuentra atrás digital por CLI
 
 Es una cuenta atras CLI que al llegar a 0 empieza a contar hacia adelante para ver cuanto tiempo te has pasado.
 
