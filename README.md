@@ -1,4 +1,4 @@
-[Versión 0.6.2]: #
+[Versión 0.7.2]: #
 # cuentaAtras - Cuentra atrás digital por CLI
 
 Es una cuenta atras CLI que al llegar a 0 empieza a contar hacia adelante para ver cuanto tiempo te has pasado.
@@ -8,6 +8,12 @@ Es una cuenta atras CLI que al llegar a 0 empieza a contar hacia adelante para v
 Estructura del la cuenta atrás funcional
 
 Actualmente TIEMPO IMPRECISO, se ha usado sleep para el desarrollo de la estructura del reloj en terminal.
+
+### Ficheros
+- cuentaAtras: fichero del codigo principal
+- LICENSE: contenido de la licencia
+- README.md: información del proyecto
+- .gitignore: define elementos a ignorar
 
 ---
 ## Instalación
@@ -43,7 +49,9 @@ Para un uso mas ágil se puede crear una carpeta para script de forma que todos 
 
 Esto se puede conseguir añadiendo a ~/.bashrc la línea:
 
->export PATH=$PATH:/ruta/a/carpeta/con/scripts
+```bash
+    export PATH=$PATH:/ruta/a/carpeta/con/scripts
+```
 
 ---
 ## Licencia
@@ -51,5 +59,8 @@ Este proyecto está licenciado bajo GPLv2 - consulta el archivo LICENSE para má
 
 ---
 ## Autor
->[Alex](github.com/4lexKy)
+>**Alex**
+- Github: [https://github.com/4lexKy](https://github.com/4lexKy)
+- Email: [alex.correu@pm.me](mailto:alex.correu@pm.me)
+
 ---
